@@ -1,2 +1,2 @@
 # Portfolio
- My professional portfolio
+ My professional portfolio. Check back for more as a create additional projects.
