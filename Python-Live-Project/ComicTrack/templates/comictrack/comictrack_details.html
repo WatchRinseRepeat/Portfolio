@@ -1,0 +1,22 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Comic Details{% endblock %}
+
+{% block content %}
+
+<div class="detail-container">
+    <h1>Comic Details</h1>
+    <h3>{{ comic.series_title }}, Issue # {{ comic.issue_num }}</h3>
+    <p>{{ comic.publisher }}</p>
+    <p>{{ comic.release_month }} {{ comic.release_year }}</p>
+    <p>Owned: {{ comic.owned }} - Read: {{ comic.read }}</p>
+    <a class="btn" href="{% url 'comictrack_edit' pk=comic.id %}">Edit</a> |
+    <a class="btn" href="{% url 'comictrack_delete' pk=comic.id %}">Delete</a> |
+    <a href="{% url 'comictrack_collection' %}">Back</a>
+</div>
+
+
+
+
+
+
+{% endblock %}

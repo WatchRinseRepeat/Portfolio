@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static '/css/comictrack.css' %}">
+
+        {# title #}
+        <title>{% block title %}ComicTrack{% endblock %}</title>
+    </head>
+
+    <body>
+    {# Nav bar #}
+        <div class="nav-bar">
+            <div class="btn-group">
+                <div class="dropdown-menu">
+                    <a href="{% url 'comictrack_home' %}">Home</a>
+                    <a href="{% url 'comictrack_add' %}">Add</a>
+                    <a href="{% url 'comictrack_collection' %}">Collection</a>
+                    <a href="{% url 'comictrack_soup' %}">Soup</a>
+                    <a href="{% url 'comictrack_api' %}">API</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="title">
+            <h1>ComicTrack</h1>
+        </div>
+        {% block content %}
+
+
+        {% endblock %}
+
+    {# footer #}
+
+    </body>
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,36 @@
+{% extends 'comictrack_base.html' %}
+{% load static %}
+{% block title %}API Results{% endblock %}
+
+{% block content %}
+<div class="comics-container">
+    <h3>Content Courtesy of <a href="https://api.artic.edu/">Art Institute of Chicago API</a></h3>
+    <a href="{% url 'comictrack_api' %}"><button>Return</button></a>
+    <br><br><br>
+    <div class="images">
+
+        <div id="Slideshow">
+            <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+
+                    <br>
+                    {% for image in image_ids %}
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="https://www.artic.edu/iiif/2/{{image}}/full/843,/0/default.jpg" alt="{{image}}">
+                    </div>
+                    {% endfor %}
+                    <br>
+                    <br>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static '/js/comictrack.js' %}"></script>
+{% endblock %}

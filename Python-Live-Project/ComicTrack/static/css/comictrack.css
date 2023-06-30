@@ -1,0 +1,168 @@
+body {
+    background: url("../images/comic.jpg");
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+p {
+    padding: 0px 0px 0px 10px;
+}
+
+button {
+    font-family: 'Courier New', monospace;
+    background: white;
+}
+
+.title {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    background-color: white;
+    width: 40%
+}
+
+/* NavBar Style */
+.nav-bar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    -webkit-animation: moveNav 5s;
+    animation: moveNav 1s;
+}
+
+@keyframes moveNav {
+    from {top:-100vw;}
+    to {top: 0vw;}
+}
+
+.dropdown-menu a {
+    font-size: 20px;
+    background: white;
+    border: 1px solid black;
+    padding: 28px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.dropdown-menu a:hover {
+    font-size: 28px;
+    padding: 32px;
+    background: #F2F2F2;
+    cursor: pointer;
+    transition: .75s linear;
+}
+
+/* End NavBar Style */
+
+
+
+
+
+.form-container {
+    max-width: 40%;
+    margin: auto;
+    border: 2px solid black;
+    background: white;
+}
+
+.collection-container {
+    max-width: 75%;
+    margin: auto;
+    border: 2px solid white;
+    background: white;
+    text-align: center;
+}
+
+.comics-container {
+    max-width: 75%;
+    margin: auto;
+    border: 2px solid white;
+    background: white;
+    text-align: center;
+    opacity: 100%;
+}
+
+.collection-table {
+    max-width: 80%;
+    margin: auto;
+    border: 2px solid black;
+    background: white;
+    opacity: 100%;
+}
+
+.detail-container {
+    max-width: 40%;
+    margin: auto;
+    border: 2px solid white;
+    background: white;
+    text-align: center;
+}
+
+.comics {
+    align: center;
+}
+
+.comic {
+    float: left;
+    display: block;
+    position: relative;
+    opacity: 100%;
+    margin: 1% 10% 1% 10%;
+}
+
+.foot {
+    position: static;
+    width: 50%
+}
+
+/*Slide show Styling*/
+#Slideshow_Background {
+    background: rgba(255, 255, 255, .35)
+}
+
+.mySlides {
+    display: none;
+}
+
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: 100%;
+}
+
+.Previous, .Next{
+    cursor: pointer;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.Next {
+    right: 0; /*position on the right side*/
+    border-radius: 3px 0 0 3px;
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+}

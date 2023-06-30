@@ -1,0 +1,10 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Beautiful Soup{% endblock %}
+
+{% block content %}
+    <div class="collection-container">
+        <h1>Addition Successful</h1>
+
+        <a href="{% url 'comictrack_collection' %}?page={{ page_obj.paginator.num_pages }}">View in Collection &raquo;</a>
+    </div>
+{% endblock %}

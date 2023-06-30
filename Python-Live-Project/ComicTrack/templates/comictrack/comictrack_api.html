@@ -1,0 +1,19 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Image Finder API{% endblock %}
+
+{% block content %}
+    <div class="collection-container">
+        <div class="image-search-form">
+            <h2>Type a search term and click Find Images to see art!</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button id="new-comic-button" type="submit" name="Find Images">Find Images</button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+
+
+{% endblock %}

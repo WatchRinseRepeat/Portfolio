@@ -1,0 +1,28 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Beautiful Soup{% endblock %}
+
+{% block content %}
+
+<div class="comics-container">
+    <h3>Content Courtesy of <a href="https://www.marvel.com/comics/calendar">Marvel</a></h3>
+
+    <div class="comics">
+        {% for comic in comics %}
+        <div class="comic">
+            <p>{{comic.comic_alt}}</p>
+            <a href="{% url 'comictrack_soupsave' details=comic.comic_alt  %}">Add to collection</a><br>
+            <a href="{{ comic.comic_url }}"><img src="{{ comic.comic_img }}"> </a>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <div class="foot">
+        <p> <a href="https://www.marvel.com/comics/calendar">https://www.marvel.com/comics/calendar</a></p>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

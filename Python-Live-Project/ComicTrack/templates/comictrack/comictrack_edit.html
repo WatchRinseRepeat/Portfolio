@@ -1,0 +1,15 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Edit Details{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <h1>Edit Comic</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Save</button>
+    </form>
+   <a href="{% url 'comictrack_details' comic.id %}">Return</a>
+</div>
+
+{% endblock %}

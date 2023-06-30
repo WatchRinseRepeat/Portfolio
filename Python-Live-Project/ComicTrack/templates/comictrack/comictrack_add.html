@@ -1,0 +1,15 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Add a comic{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <div class="new-comic-form">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <p><button id="new-comic-button" type="submit" name="Add_Comic">Add Comic</button></p>
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}

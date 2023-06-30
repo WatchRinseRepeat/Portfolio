@@ -1,0 +1,61 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Comic Collection{% endblock %}
+
+{% block content %}
+<div class="collection-container">
+    <h1>Collection</h1>
+    <table class="collection-table">
+        <tr>
+            <th>Publisher</th>
+            <th>Title</th>
+            <th>Issue</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Owned</th>
+            <th>Read</th>
+        </tr>
+        {% for c in page_obj %} {# This is the for loop that renders data from the model #}
+
+        <tr>
+            <td>{{ c.publisher|capfirst }}</td>
+            <td><a href="{% url 'comictrack_details' c.id %}">{{ c.series_title|capfirst }}</a></td>
+            <td><a href="{% url 'comictrack_details' c.id %}">{{ c.issue_num }}</a></td>
+            <td>{{ c.release_year }}</td>
+            <td>{{ c.release_month }}</td>
+            <td>{{ c.owned }}</td>
+            <td>{{ c.read }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <div class="pagination">   {# This is the pagination at the bottom of the page #}
+        <span class="steps">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current-step">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <br>
+    <br>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

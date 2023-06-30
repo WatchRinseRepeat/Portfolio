@@ -1,0 +1,22 @@
+{% extends 'comictrack_base.html' %}
+{% block title %}Comic Details{% endblock %}
+
+{% block content %}
+
+<div class="detail-container">
+    <h1>Delete</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <h3>Permanently delete {{ comic.series_title }}, Issue # {{ comic.issue_num }}?</h3>
+
+        <button class="btn" type="submit">Delete</button> |
+        <a class="btn" href="{% url 'comictrack_details' pk=comic.id %}">Cancel</a>
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock %}
