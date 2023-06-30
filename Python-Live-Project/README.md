@@ -11,7 +11,7 @@ The Python live project was a two week team project in which we worked on pieces
 #### Crud Functionality
 ![Add](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/03487458-fe1c-46b8-bc0e-c0c6b0053919)
 ![Collection](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/38e49e3b-e5ff-4f21-a09f-eda859e7855a)
-![CRUD](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/f89ecdb7-7e35-493a-8f12-dc1f373378d4)
+![CRUD](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/8e9fb242-6883-4a85-853e-e8a737919ad3)
 
 #### HTML Scraping
 ![Soup](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/8a382abc-f3f9-4ab2-822a-f0f53f035be3)
