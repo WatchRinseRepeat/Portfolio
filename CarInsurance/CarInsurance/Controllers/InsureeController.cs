@@ -59,7 +59,7 @@ namespace CarInsurance.Controllers
 
             //Calculate premium for carYear
             if (insuree.CarYear < 2000) baseAmount += 25;
-            else if (insuree.CarYear > 2015) baseAmount += 50;
+            else if (insuree.CarYear > 2015) baseAmount += 25;
 
             //Check if porche, calculate premium accordingly
             if (insuree.CarMake == "Porsche")
