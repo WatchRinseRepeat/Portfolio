@@ -10,6 +10,7 @@ The Python live project was a two week team project in which we worked on pieces
 
 #### Crud Functionality
 I began the project by creating a database model with CRUD functionality.
+
 ![Add](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/03487458-fe1c-46b8-bc0e-c0c6b0053919)
 ![CRUD](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/8e9fb242-6883-4a85-853e-e8a737919ad3)
 
@@ -22,4 +23,7 @@ Once I accomplished the required CRUD functionlity of the app I moved onto the o
 ![Soup](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/8a382abc-f3f9-4ab2-822a-f0f53f035be3)
 
 #### API Management
+The last section of optional features was to create a page that utilized API calls to display content. I had hoped to utilize Marvel's API however it's requirements did not meet the environment I was developing in so I pivoted to use the Art Insitute of Chicago's API to create a page which could take search terms and display works from the Institute's archives.
 ![api2](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/1a3ec7e0-6ab2-43f6-a086-b5a9523db274)
+
+### Take Aways
