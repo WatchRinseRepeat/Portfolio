@@ -1,0 +1,273 @@
+﻿@model TheatreCMS3.Areas.Rent.ViewModels.RentalVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double cost = 0;
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h2>Rental</h2>
+<hr />
+<div class="cms-text-dark row row-cols-3">
+    @foreach (var rental in Model.Rental)
+    {
+    <div class="col-4">
+        <div class="card m-2">
+            <img class="card-img-top" src="~/Content/images/placeholder.jpg" alt="Placeholder">
+            <div class="card-body">
+                <h5>@rental.RentalName</h5>
+                @{cost = rental.RentalCost / 7; }
+                <span>$@cost / day</span>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    @Html.ActionLink(" Edit", "Edit", new { id = rental.RentalId }, new { @class = "col-4 fa-solid fa-edit btn btn-dark text-white float-left" })
+                    <div class="col"></div>
+                    @Html.ActionLink(" Delete", "Delete", new { id = rental.RentalId }, new { @class = "col-5 float-right fa-solid fa-times-circle btn cms-bg-main text-white" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink(" Details", "Details", new { id = rental.RentalId }, new { @class = "fa-solid fa-circle-info btn btn-dark text-white" })
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+<h2>Rental Rooms</h2>
+<hr />
+<div class="cms-text-dark row row-cols-3">
+    @foreach (var rental in Model.Room)
+    {
+        <div class="col-4">
+            <div class="card m-2">
+                <img class="card-img-top" src="~/Content/images/placeholder.jpg" alt="Placeholder">
+                <div class="card-body">
+                    <h5>@rental.RentalName</h5>
+                    @*<span class="badge-pill cms-bg-main text-white small">Choking Hazard</span>
+                    <span class="badge-pill cms-bg-main text-white small">Suffocation Hazard</span>*@
+                    <br />
+                    @{cost = rental.RentalCost / 7; }
+                    <span>$@cost / day</span>
+                    <span class="float-right badge-pill cms-bg-secondary text-white">@rental.SquareFootage ft<sup>2</sup></span>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        @Html.ActionLink(" Edit", "EditRoom", new { id = rental.RentalId }, new { @class = "col-4 fa-solid fa-edit btn btn-dark text-white float-left" })
+                        <div class="col"></div>
+                        @Html.ActionLink(" Delete", "Delete", new { id = rental.RentalId }, new { @class = "col-5 float-right fa-solid fa-times-circle btn cms-bg-main text-white" })
+                    </div>
+                    <div class="row">
+                        @Html.ActionLink(" Details", "Details", new { id = rental.RentalId }, new { @class = "fa-solid fa-circle-info btn btn-dark text-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<h2>Rental Equipment</h2>
+<hr />
+<div class="cms-text-dark row row-cols-3">
+    @foreach (var rental in Model.Equipment)
+    {
+        <div class="col-4">
+            <div class="card m-2">
+                <img class="card-img-top" src="~/Content/images/placeholder.jpg" alt="Placeholder">
+                <div class="card-body">
+                    <h5>@rental.RentalName</h5>
+                    <div class="row">
+                        @if (rental.ChockingHazard)
+                        {
+                            <span class="badge-pill cms-bg-main text-white small">Choking Hazard</span>
+                        }
+                        @if (rental.SuffocationHazard)
+                        {
+                            <span class="badge-pill cms-bg-main text-white small">Suffocation Hazard</span>
+                        }
+                    </div>
+                    <br />
+                    @{cost = rental.RentalCost / 7; }
+                    <span>$@cost / day</span>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        @Html.ActionLink(" Edit", "EditEquipment", new { id = rental.RentalId }, new { @class = "col-4 fa-solid fa-edit btn btn-dark text-white float-left" })
+                        <div class="col"></div>
+                        @Html.ActionLink(" Delete", "Delete", new { id = rental.RentalId }, new { @class = "col-5 float-right fa-solid fa-times-circle btn cms-bg-main text-white" })
+                    </div>
+                    <div class="row">
+                        @Html.ActionLink(" Details", "Details", new { id = rental.RentalId }, new { @class = "fa-solid fa-circle-info btn btn-dark text-white" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+@*<div class="card cms-text-dark">
+        <div class="card-header">
+            <div class="row">
+                <div class="col">
+                    @Html.DisplayName("Rental Name")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Rental Cost")
+                </div>
+                <div class="col-2">
+                    @Html.DisplayName("Flaws and Damages")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Choking Hazard")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Suffocation Hazard")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Purchase Price")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Room Number")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Square Footage")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Max Occupancy")
+                </div>
+                <div class="col">
+                    @Html.DisplayName("Rental Type")
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+        <ul>
+            @if (Model.Room != null || Model.Equipment != null || Model.Rental != null)
+            {
+                foreach (var item in Model.Room)
+                {
+                    <li class="row">
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RentalName)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RentalCost)
+                        </div>
+                        <div class="col-2">
+                            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RoomNumber)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.SquareFootage)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.MaxOccupancy)
+                        </div>
+                        <div class="col">
+                            Room Rental
+                        </div>
+                        <div class="col">
+                            @Html.ActionLink("Edit", "EditRoom", new { id = item.RentalId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalId })
+                        </div>
+                    </li>
+                }
+                foreach (var item in Model.Equipment)
+                {
+                    <li class="row">
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RentalName)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RentalCost)
+                        </div>
+                        <div class="col-2">
+                            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.ChockingHazard)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.SuffocationHazard)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.PurchasePrice)
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                            Equipment Rental
+                        </div>
+                        <div class="col">
+                            @Html.ActionLink("Edit", "EditEquipment", new { id = item.RentalId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalId })
+                        </div>
+                    </li>
+                }
+                foreach (var item in Model.Rental)
+                {
+                    <li class="row">
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RentalName)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(modelItem => item.RentalCost)
+                        </div>
+                        <div class="col-2">
+                            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                            Default Rental
+                        </div>
+                        <div class="col">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalId })
+                        </div>
+                    </li>
+
+                }
+            }
+        </ul>
+
+
+    </div>*@

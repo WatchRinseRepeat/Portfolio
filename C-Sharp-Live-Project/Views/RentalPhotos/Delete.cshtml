@@ -1,0 +1,55 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalPhoto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card  cms-text-dark col-6 text-center mx-auto">
+    <div class="card-header font-weight-bold">@Html.DisplayFor(model => model.RentalsName)</div>
+    
+    <div class="card-body mx-auto">
+        <div class="row">
+            @if (Model.RentalPhotoImg != null)
+            {
+                <img src="@Url.Action("getImg", "RentalPhotos", new { id = Model.RentalPhotoId})" alt="@Model.RentalsName image" class="card-img-top" />
+            }
+            else
+            {
+                <div class="mx-auto">Image Not Available</div>
+            }
+        </div>
+
+
+        <div class="card-body">
+            <div class="card-body border-red">
+                <h5 class="card-title">@Html.DisplayName("Details"):</h5>
+                <p class="card-text"> @Html.DisplayFor(model => model.Details) </p>
+            </div>
+            <ul class="list-group list-group-flush">
+
+
+                <li class="list-group-item">
+                    @Html.DisplayName("Damaged: ")
+
+                    @Html.DisplayFor(model => model.Damaged)
+                </li>
+
+            </ul>
+            <div class="card-footer">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <button type="submit" value="Delete" class="btn cms-bg-main text-white"><i class="fa-solid fa-trash"></i>Delete</button> |
+
+                        <i class="fa-solid fa-edit"></i>@Html.ActionLink("Edit", "Edit", new { id = Model.RentalPhotoId }) |
+                        <i class="fa-solid fa-arrow-left"></i>@Html.ActionLink("Back to List", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+     </div>
+</div>

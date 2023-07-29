@@ -1,0 +1,67 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalRoom
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rental Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlawsAndDamages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlawsAndDamages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SquareFootage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SquareFootage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxOccupancy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxOccupancy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditRoom", new { id = Model.RentalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

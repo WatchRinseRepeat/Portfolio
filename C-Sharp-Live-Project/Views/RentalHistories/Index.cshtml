@@ -1,0 +1,100 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var sortMethods = new List<string> {"First to Last", "A-Z", "Z-A", "Damaged", "Undamaged" };
+    var sortSelectList = new SelectList(sortMethods);
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="card table-responsive overflow-hidden">
+    <div class="row">
+        <div class="cms-text-dark card-header col align-content-start card-title">Most recent Rental Histories</div>
+        <div class="cms-text-dark card-header col text-right">
+            Sorted By:
+            @Html.DropDownList("Sort By", sortSelectList, new { id = "DropDownList" })
+        </div>
+
+
+    </div>
+    
+    <div class="table table-responsive rental-items">
+        <ul class="tbody list-group list-group-flush accordion "id="accordianParent">
+            @foreach (var item in Model)
+            {
+
+                <li id ="heading-@item.RentalHistoryId" class="container rental-item text-left" damaged=@item.RentalDamaged name="@item.Rental" sortId=@item.RentalHistoryId >
+                    <div class="row text-left justify-content-around" type="button" data-toggle="collapse" data-target="#collapse-@item.RentalHistoryId" aria-expanded="true" aria-controls="collapse-@item.RentalHistoryId">
+                        @if (item.RentalDamaged.ToString() == "True")
+                        {
+                            <div class="fa-solid fa-times-circle cms-text-main col-1"></div>
+                        }
+                        else
+                        {
+                            <div class="fa-solid fa-check-circle col-1"></div>
+                        }
+
+                        <div>
+                            <div class="badge-dark col">@Html.DisplayFor(modelItem => item.Rental)</div>
+                        </div>
+
+                        @if (item.RentalDamaged.ToString() == "False")
+                        {
+                            <div class="col text-black-50 text-truncate" name="damages-note">
+                                @if (@Html.DisplayFor(modelItem => item.DamagesIncurred).ToString() == "")
+                                {
+                                    <p>None</p>
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                                }
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div class="col text-truncate" name="damages-note">
+                                @if (@Html.DisplayFor(modelItem => item.DamagesIncurred).ToString() == "")
+                                {
+                                    <p>None</p>
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                                }
+                            </div>
+                        }
+
+                        <div class="dropdown rental-dropdown">
+                            <button class="btn" id="dropdownMenuRental" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="dropdown-btn fa-solid fa-ellipsis-v"></div>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuRental">
+                                <div class="row align-items-center"> <i class="fa-solid fa-edit col-1"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</div>
+                                <div class="row align-items-center"> <i class="fa-solid fa-circle-info col-1"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId})</div>
+                                <div class="row align-items-center"> <i class="fa-solid fa-times-circle cms-text-main col-1"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId}, new { @class = "cms-text-main" })</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row collapse" id="collapse-@item.RentalHistoryId" aria-labelledby="heading-@item.RentalHistoryId" data-parent="#accordianParent">
+                        <div class="col-2"></div>
+                        <div class="col-3">Some Text  </div>
+                    </div>
+                </li>
+                    
+            }
+        </ul>
+    </div>
+    
+</div>
+
+

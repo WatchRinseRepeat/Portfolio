@@ -1,0 +1,88 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
+@using TheatreCMS3.Areas.Rent.Models
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<Rental> rentals = ViewBag.data;
+
+    List<SelectListItem> rentalList = new List<SelectListItem>();
+
+    if (rentals != null)
+    {
+        foreach (var rental in rentals)
+        {
+            rentalList.Add(new SelectListItem
+            {
+                Selected = false,
+                Text = rental.RentalName,
+                Value = rental.RentalId.ToString()
+
+            });
+        }
+    }
+
+
+
+}
+
+<h2 class="text-center">Create Rental History</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal card cms-bg-main">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-6" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("SelectedRentalId",rentalList, htmlAttributes: new {@class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Damaged?</label>
+                    <div class="col-md-12">
+                        <div>
+                            @Html.EditorFor(model => model.RentalDamaged, new {@class = "check-box" })
+                            @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2 label-id"  })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group text-center">
+            <div class="col-md-offset-2 col-md-12">
+                <button class="btn btn-dark">@Html.ActionLink("Back to List", "Index")</button>
+                <input type="submit" value="Create" class="btn cms-bg-secondary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

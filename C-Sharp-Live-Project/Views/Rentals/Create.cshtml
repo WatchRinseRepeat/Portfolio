@@ -1,0 +1,248 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var rentalTypes = new List<string>
+    {
+        "Rental Equipment",
+        "Rental Room"
+    };
+}
+
+<div class="card mx-auto col-6">
+    <div>
+        <div class="card-header cms-text-dark">Create Rental</div>
+        <div class="cms-text-dark card-header col">
+            @*@foreach (var rentalType in rentalTypes)
+        {
+            @Html.RadioButton("rentalType", rentalType, false, new { @class = rentalType })
+            <span> </span>
+            @rentalType
+            <br />
+        }*@
+
+            <input type="radio" id="rentalEquipment" name="rentalType" value="Equipment" checked="checked" />
+            <label for="rentalEquipment">Equipment Rental</label><br />
+            <input type="radio" id="rentalRoom" name="rentalType" value="Room" />
+            <label for="rentalEquipment">Room Rental</label><br />
+            <input type="radio" id="rentalEquipment" name="rentalType" value="Other" />
+            <label for="rentalEquipment">Other Rental</label><br />
+
+        </div>
+    </div>
+    <div class="rental-default-form">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal card-body cms-text-dark">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Rental Name")
+                    </div>
+                    <div class="col">
+                        @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", placeholder = "Rental Name" } })
+                        @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Rental Cost")
+                    </div>
+                    <div class="col">
+                        @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", placeholder = "Rental Cost" } })
+                        @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Flaws and Damages")
+                    </div>
+                    <div class="col">
+                        @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", placeholder = "Flaws and Damages" } })
+                        @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-md-12 text-center">
+                        <input type="submit" value="Create" class="btn cms-bg-main text-white" />
+                        <div class="btn cms-bg-secondary col-4">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="rental-equipment-form">
+        <form action="CreateEquipment" method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal card-body cms-text-dark">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Rental Name")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("RentalName", new { htmlAttributes = new { @class = "form-control", placeholder = "Rental Name" , id = "EquipmentRentalName", type = "text", required = "required"} })
+                        @Html.ValidationMessage("EquipmentRentalName", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Rental Cost")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("RentalCost", new { htmlAttributes = new { @class = "form-control", placeholder = "Rental Cost", id = "EquipmentRentalCost", type ="number", required = "required", min = "0", step = "1" } })
+                        @Html.ValidationMessage("EquipmentRentalCost", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Flaws and Damages")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("FlawsAndDamages", new { htmlAttributes = new { @class = "form-control", placeholder = "Flaws and Damages", id = "EquipmentFlawsAndDamages", type = "text" } })
+                        @Html.ValidationMessage("EquipmentFlawsAndDamages", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Choking Hazard")
+                    </div>
+                    <div class="col-2">
+                        @Html.CheckBox("ChockingHazard", new { htmlAttributes = new { @class = "form-control", id = "EquipmentChokingHazard", type = "checkbox" } })
+                        @Html.ValidationMessage("EquipmentChokingHazard", new { @class = "text-danger" })
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Suffocation Hazard")
+                    </div>
+                    <div class="col-2">
+                        @Html.CheckBox("SuffocationHazard", new { htmlAttributes = new { @class = "form-control", id = "EquipmentSuffocationHazard", type = "checkbox" } })
+                        @Html.ValidationMessage("EquipmentSuffocationHazard", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Purchase Price")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("PurchasePrice", new { htmlAttributes = new { @class = "form-control", id = "EquipmentPurchasePrice",placeholder = "Purchase Price", type = "number", min="0", step="1" } })
+                        @Html.ValidationMessage("EquipmentPurchasePrice", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-md-12 text-center">
+                        <input type="submit" value="Create" class="btn cms-bg-main text-white" />
+                        <div class="btn cms-bg-secondary col-4">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="rental-room-form">
+        <form action="CreateRoom" method="post">
+            
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal card-body cms-text-dark">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Rental Name")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("RentalName", new { htmlAttributes = new { @class = "form-control", placeholder = "Rental Name", id = "RoomRentalName", type = "text", required = "required" } })
+                        @Html.ValidationMessage("RoomRentalName", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Rental Cost")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("RentalCost", new { htmlAttributes = new { @class = "form-control", placeholder = "Rental Cost", id = "RoomRentalCost", type = "number", required = "required", min = "0", step = "1" } })
+                        @Html.ValidationMessage("RoomRentalCost", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Flaws and Damages")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("FlawsAndDamages", new { htmlAttributes = new { @class = "form-control", placeholder = "Flaws and Damages", id = "RoomFlawsAndDamages", type = "text" } })
+                        @Html.ValidationMessage("RoomFlawsAndDamages", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Room Number")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("RoomNumber", new { htmlAttributes = new { @class = "form-control", placeholder = "Room Number", id = "RoomRoomNumber", type = "number", required = "required", min = "0", step = "1" } })
+                        @Html.ValidationMessage("RoomRoomNumber", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Square Footage")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("SquareFootage", new { htmlAttributes = new { @class = "form-control", placeholder = "Square Footage", id = "RoomSquareFootage", type = "number", required = "required", min = "0", step = "1" } })
+                        @Html.ValidationMessage("RoomSquareFootage", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        @Html.Label("Max Occupancy")
+                    </div>
+                    <div class="col">
+                        @Html.Editor("MaxOccupancy", new { htmlAttributes = new { @class = "form-control", placeholder = "Max Occupancy", id = "RoomMaxOccupancy", type = "number", required = "required", min = "0", step = "1" } })
+                        @Html.ValidationMessage("RoomMaxOccupancy", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <div class="col-md-12 text-center">
+                        <input type="submit" value="Create" class="btn cms-bg-main text-white" />
+                        <div class="btn cms-bg-secondary col-4">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

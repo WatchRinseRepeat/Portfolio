@@ -1,0 +1,89 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalPhoto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Create New", "Create", "RentalPhoto", new { @class = "btn cms-bg-main text-white m-1" })
+
+<div class="card ">
+    <div class="row">
+        <div class="cms-text-dark card-header col align-content-start card-title">Rentals</div>
+        <div class="cms-text-dark card-header col text-right">
+            Search
+            @Html.TextBox("Search")
+        </div>
+
+
+    </div>
+
+    <div class="container">
+        <div class="row cms-text-dark row-cols-4">
+
+            @foreach (var item in Model)
+            {
+
+                <div class="card cms-text-dark col-3 rental-img-card">
+                    <div class="rental-card img-container">
+                        @if (item.RentalPhotoImg != null)
+                        {
+                            <img src="@Url.Action("getImg", "RentalPhotos", new { id = item.RentalPhotoId })" alt="@item.RentalsName image" class="card-img-top" />
+                            <div class="row rental-card-edit justify-content-center flex-column card-img-overlay text-center overlay-text">
+                                <div class="align-items-center">
+                                    <i class="fa-solid fa-edit"></i>  @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId })
+                                </div>
+                                <div class="align-items-center">
+                                    <i class="fa-solid fa-times-circle cms-text-main col-1"></i> @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })
+                                </div>
+                                <div class="text-center align-items-center">
+                                    <button data-post-id="@item.RentalPhotoId" class="btn fa-solid fa-arrow-alt-circle-up upvote"><span id="upvotes-count-@item.RentalPhotoId">@item.UpVotes</span></button>
+                                    @{ 
+
+                                        int ratio;
+                                        if(item.Votes == 0)
+                                        {
+                                            ratio = 0;
+                                        }
+                                        else
+                                        {
+                                            double ups = Convert.ToDouble(item.UpVotes);
+                                            double votes = Convert.ToDouble(item.Votes);
+                                            ratio = Convert.ToInt32((ups / votes) * 100);
+                                        }
+                                        int downvotes = item.Votes - item.UpVotes;
+                                    }
+                                    <span id="votes-count-@item.RentalPhotoId">@ratio%</span>
+                                    <button data-post-id="@item.RentalPhotoId" class="btn fa-solid fa-arrow-alt-circle-down downvote"><span id="downvotes-count-@item.RentalPhotoId">@downvotes</span></button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row card-body text-center">
+                                No image available <br />
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId })  |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                
+                            </li>
+                            <li class="list-group-item">@Html.DisplayFor(modelItem => item.RentalsName) </li>
+                            <li class="list-group-item">
+                                @Html.DisplayName("Damaged")
+                                @Html.DisplayFor(modelItem => item.Damaged)
+                            </li>
+                            <li class="list-group-item">@Html.DisplayFor(modelItem => item.Details)</li>
+                        </ul>
+                    </div>
+
+                    @Html.ActionLink(" ", "Details", new { id = item.RentalPhotoId }, new { @class = "stretched-link" })
+                </div>
+            }
+        </div>
+    </div>
+</div>
