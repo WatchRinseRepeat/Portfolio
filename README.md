@@ -14,4 +14,6 @@ A Django web application providing CRUD functionality for a database containing 
 A C# and .NET Framework web application that mimics a Car Insurance site. It takes user input on policy information and uses business logic to provide a quote.
 
 ### C# Live Project: Rental Pages
+[Code Summary](https://github.com/WatchRinseRepeat/Portfolio/blob/main/C-Sharp-Live-Project/README.md)
+
 A .Net and Entity Framework website written in C#. It is the Rental Section for a theater website.
