@@ -7,6 +7,7 @@
 
 ### Python Live Project: ComicTrack
 [Code Summary](https://github.com/WatchRinseRepeat/Portfolio/blob/main/Python-Live-Project/README.md)
+
 A Django web application providing CRUD functionality for a database containing data for a user's comicbook collection.
 
 ### Car Insurance
