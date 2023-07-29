@@ -27,3 +27,4 @@ The last section of optional features was to create a page that utilized API cal
 ![api2](https://github.com/WatchRinseRepeat/Portfolio/assets/129567713/1a3ec7e0-6ab2-43f6-a086-b5a9523db274)
 
 ### Take Aways
+Of the things that I learned in this live project I beleive the most important were to rely on team members to guide when working on new concepts as well as how to find solutions to issues that arise through tools such as Stack Overflow and other forums. It also showed me what working in a Sprint was like.
