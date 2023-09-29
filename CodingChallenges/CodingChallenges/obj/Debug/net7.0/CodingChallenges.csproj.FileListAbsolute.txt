@@ -1,0 +1,15 @@
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\bin\Debug\net7.0\CodingChallenges.exe
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\bin\Debug\net7.0\CodingChallenges.deps.json
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\bin\Debug\net7.0\CodingChallenges.runtimeconfig.json
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\bin\Debug\net7.0\CodingChallenges.dll
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\bin\Debug\net7.0\CodingChallenges.pdb
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.csproj.AssemblyReference.cache
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.AssemblyInfoInputs.cache
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.AssemblyInfo.cs
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.csproj.CoreCompileInputs.cache
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.dll
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\refint\CodingChallenges.dll
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.pdb
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\CodingChallenges.genruntimeconfig.cache
+C:\Users\saeyr\OneDrive\Desktop\Basic_C#_Programs\CodingChallenges\CodingChallenges\obj\Debug\net7.0\ref\CodingChallenges.dll
