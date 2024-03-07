@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwitchOverViewer.MainPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <HorizontalStackLayout
+        x:Name="mainBackground"
+        BackgroundColor="Black"
+        HorizontalOptions="FillAndExpand"
+        >
+        <HorizontalStackLayout
+            VerticalOptions="Center">
+
+            <ScrollView
+                 Orientation="Horizontal">
+                <Grid
+                    x:Name="FollowingPanel"
+                    MinimumWidthRequest="100"
+                    Margin="20">
+
+                </Grid>
+            </ScrollView>
+
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Margin="5">
+                
+                <VerticalStackLayout
+                    VerticalOptions="Center">
+                     <Label Text="Twitch Over Viewer" 
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        FontSize="Title"/>
+                    <Label Text="Enter Channel Name:"
+                        TextColor="White" />
+                    <Entry x:Name="eChannel"
+                        BackgroundColor="White" />
+                    <Label Text="UserName:"
+                           TextColor="White" />
+                    <Entry x:Name="eUsername"
+                           Text="watchrinserepeat"
+                           BackgroundColor="White" />
+                </VerticalStackLayout>
+            
+
+                <VerticalStackLayout
+                    Padding="30,0"
+                    Spacing="25"
+                    VerticalOptions="Center">
+
+                
+                    <Button 
+                        x:Name="btnLaunchViewer"
+                        Text="Stream Viewer"
+                        Clicked="btnLaunchViewer_Clicked"
+                        />
+                    <Button
+                        x:Name="btnLaunchChat"
+                        Text="Chat Viewer" 
+                        Clicked="btnLaunchChat_Clicked"/>
+                    <Button
+                        x:Name="btnGetFollowed"
+                        Text="Get Followed"
+                        Clicked="btnGetFollowed_Clicked"/>
+                    <Button   
+                        x:Name="btnLoadConfiguration"
+                        Text="Load Authentication"
+                        Clicked="btnLoadConfiguration_Clicked"
+                        />
+                    <Button   
+                        x:Name="btnOpenAuthentication"
+                        Text="Authentication Settings"
+                        Clicked="btnOpenAuthentication_Clicked"
+                        />
+                    <Button   
+                        x:Name="btnOpenLogin"
+                        Text="Login"
+                        Clicked="btnOpenLogin_Clicked"
+                        />
+
+
+
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            
+        </HorizontalStackLayout>
+    </HorizontalStackLayout>
+
+</ContentPage>

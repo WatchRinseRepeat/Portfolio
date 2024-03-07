@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwitchOverViewer.ContentPages.ChatViewerPage"
+             Title="ChatViewerPage">
+
+    <VerticalStackLayout
+        BackgroundColor="white">
+        <!--<Label 
+            Text="Welcome to the Chat Viewer"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />-->
+
+        <ScrollView
+            BackgroundColor="Black"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="500"
+            x:Name="svChat">
+
+            <!--<VerticalStackLayout
+                x:Name="vslChat">
+            
+            </VerticalStackLayout>-->
+            
+            <WebView
+                x:Name="wvChat" 
+                HorizontalOptions="Fill"
+                VerticalOptions="FillAndExpand"
+                Navigated="wvChat_Navigated"
+                BackgroundColor="Black"
+                />
+            
+            
+        </ScrollView>
+        <HorizontalStackLayout
+            HorizontalOptions="FillAndExpand"
+            MinimumWidthRequest="400">
+            <Entry 
+                x:Name="entryChat"
+                BackgroundColor="DarkGray"
+                HorizontalOptions="FillAndExpand"
+                MinimumWidthRequest="326"
+                MaximumWidthRequest="326"
+                Completed="btnSendMessage_Clicked"
+                />
+            <Button x:Name="btnSendMessage"
+                Text="Send"
+                WidthRequest="60"
+                Clicked="btnSendMessage_Clicked"
+                />
+
+        </HorizontalStackLayout>
+
+
+    </VerticalStackLayout>
+</ContentPage>

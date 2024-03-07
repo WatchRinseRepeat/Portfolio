@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwitchOverViewer.Views.ContentPages.AuthenticationPage"
+             Title="AuthenticationPage">
+    <VerticalStackLayout
+        MaximumWidthRequest="300">
+        <Label 
+            Text="Enter Authentication Details"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label
+            Text="OAuth Token"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Entry
+            x:Name="eOAuthToken"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="300" />
+        <Label
+            Text="Client ID Token"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Entry
+            x:Name="eClientId"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="300" />
+        <Label
+            Text="User Token"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Entry
+            x:Name="eUserToken"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="300" />
+        <Label
+            Text="Client Secret"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Entry
+            x:Name="eClientSecret"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="300" />
+        <Label
+            Text="Redirect Uri"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Entry
+            x:Name="eRedirectionUri"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="300" />
+        <Label
+            Text="Refresh Token"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Entry
+            x:Name="eUserRefreshToken"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="300" />
+        <Button
+            x:Name="btnLoadConfig"
+            Text="Load"
+            Clicked="btnLoadConfig_Clicked"
+            />
+        <Button
+            x:Name="btnSaveConfig"
+            Text="Save"
+            Clicked="btnSaveConfig_Clicked" />
+
+    </VerticalStackLayout>
+</ContentPage>

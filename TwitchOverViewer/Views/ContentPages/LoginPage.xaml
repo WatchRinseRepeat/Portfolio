@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwitchOverViewer.Views.ContentPages.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout>
+        <!--<Label 
+            Text="User Name:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="eUserName"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+        <Label 
+            Text="Password:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="ePassword"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            IsPassword="True"
+            />-->
+        <Button 
+            x:Name="btnLogin"
+            Text="Login"
+            Clicked="btnLogin_Clicked"   
+            />
+        <WebView
+            x:Name="wvAuthenticationWindow"
+            MinimumWidthRequest="300"
+            MinimumHeightRequest="300"
+            Source="" 
+            IsVisible="false"
+            />
+        <Entry
+            x:Name="eRedirectUrl"
+            Text="Url will appear here."
+            />
+        <Button 
+            x:Name="btnRefresh"
+            Text="Refresh Token"
+            Clicked="btnRefresh_Clicked" 
+            />
+    </VerticalStackLayout>
+</ContentPage>
